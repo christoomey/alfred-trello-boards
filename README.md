@@ -25,19 +25,9 @@ Create this file and alter this as needed to make use of your preferred ruby ver
 Gems
 ----
 
-In addition, the following gems must be installed for the ruby the script will
-run with:
-
-- [Dotenv][]
-- JSON
-- [Nokogiri][]
-- [String Score][]
-- [RestClient][]
-
-[RestClient]: https://github.com/rest-client/rest-client
-[String Score]: https://github.com/jlindley/string_score_ruby
-[Dotenv]: https://github.com/bkeepers/dotenv
-[Nokogiri]: http://nokogiri.org/
+The repo contains a gemfile with the dependencies. Run `bundle install` to
+install the needed gems. Make sure to do this with the default ruby specified
+by the `~/.ruby-version-shim` file.
 
 Credentials
 -----------
