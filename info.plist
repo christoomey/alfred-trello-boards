@@ -17,6 +17,28 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>5EF34C30-0186-43E2-BD5B-78DB7544F4CD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F54BD9BF-56C5-48F5-AD06-682FE64DCC49</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F54BD9BF-56C5-48F5-AD06-682FE64DCC49</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C69066BE-3B70-4974-A367-91BA274D9556</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Chris Toomey</string>
@@ -72,6 +94,69 @@ ruby feedback.rb "{query}"</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>cache-trello</string>
+				<key>text</key>
+				<string>Cache trello boards</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>5EF34C30-0186-43E2-BD5B-78DB7544F4CD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
+
+ruby boards.rb</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F54BD9BF-56C5-48F5-AD06-682FE64DCC49</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Trello board cache</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>C69066BE-3B70-4974-A367-91BA274D9556</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -79,6 +164,11 @@ ruby feedback.rb "{query}"</string>
 	<dict>
 		<key></key>
 		<dict/>
+		<key>5EF34C30-0186-43E2-BD5B-78DB7544F4CD</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
+		</dict>
 		<key>6C68D0BB-A89A-4FDD-BB99-B5A5B460646E</key>
 		<dict>
 			<key>ypos</key>
@@ -88,6 +178,16 @@ ruby feedback.rb "{query}"</string>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
+		</dict>
+		<key>C69066BE-3B70-4974-A367-91BA274D9556</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>F54BD9BF-56C5-48F5-AD06-682FE64DCC49</key>
+		<dict>
+			<key>ypos</key>
+			<real>170</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
