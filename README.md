@@ -12,7 +12,7 @@ Ruby Version
 By default Alfred workflows will run against system Ruby. This is sub optimal.
 This workflow expects there to be bash script in your home directory that will
 do whatever form of ruby version management you are partial to. This can be
-rvm, rbenv, chruby, direct $PATH maniputlation, or other. In my case, I user
+rvm, rbenv, chruby, direct $PATH manipulation, or other. In my case, I user
 RVM, so I have added the RVM init code to the file:
 
 ``` bash
@@ -20,7 +20,7 @@ RVM, so I have added the RVM init code to the file:
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 ```
 
-Alter this as needed to make use of your preferred ruby version system.
+Create this file and alter this as needed to make use of your preferred ruby version system.
 
 Gems
 ----
@@ -66,3 +66,13 @@ You can find more detail in the Trello API Documentation - [Generating a Token
 from a User][] section.
 
 [Generating a Token from a User]: https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user
+
+Usage
+-----
+
+This workflow prosodies two pieces:
+
+- A caching script `cache-trello`
+- A script filter to prompt / open boards
+
+The boards must be cached before the filter / opening can happen.
