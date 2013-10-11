@@ -60,7 +60,7 @@
 				<key>keyword</key>
 				<string>trello</string>
 				<key>script</key>
-				<string> [[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
+				<string>[[ -s "$HOME/.ruby-version-shim" ]] &amp;&amp; source "$HOME/.ruby-version-shim"
 
 ruby feedback.rb "{query}"</string>
 				<key>title</key>
@@ -119,7 +119,7 @@ ruby feedback.rb "{query}"</string>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>[[ -s "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; source "$HOME/.rvm/scripts/rvm"
+				<string>[[ -s "$HOME/.ruby-version-shim" ]] &amp;&amp; source "$HOME/.ruby-version-shim"
 
 ruby boards.rb</string>
 				<key>type</key>

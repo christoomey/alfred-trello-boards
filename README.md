@@ -9,10 +9,21 @@ An experimental [Alfred][] Workflow for quickly visiting [Trello][] boards.
 Ruby Version
 ------------
 
-The workflow currently requires that you specify the ruby version. This is done
-by including the RVM intialization line before executing the script. If you
-use an alternate ruby switcher, these references must be changed to properly
-initialize your ruby version tool.
+By default Alfred workflows will run against system Ruby. This is sub optimal.
+This workflow expects there to be bash script in your home directory that will
+do whatever form of ruby version management you are partial to. This can be
+rvm, rbenv, chruby, direct $PATH maniputlation, or other. In my case, I user
+RVM, so I have added the RVM init code to the file:
+
+``` bash
+# ~/.ruby-version-shim
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+```
+
+Alter this as needed to make use of your preferred ruby version system.
+
+Gems
+----
 
 In addition, the following gems must be installed for the ruby the script will
 run with:
