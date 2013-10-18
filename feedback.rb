@@ -1,6 +1,5 @@
 require 'json'
-require 'string_score'
-require 'nokogiri'
+require 'rexml/document'
 
 def main
   lines = open('boards.json', 'r') { |f| f.read }
@@ -9,39 +8,31 @@ def main
   log "testing text: [#{text}] against [#{boards.count}] boards"
   if text && text != ''
     log "scoring boards as text is present"
-    respond(score(boards, text))
+    respond filter(boards, text)
   else
     log "responding with full boards list"
     respond(boards)
   end
 end
 
-def score(boards, text)
-  scored = boards.map do |board|
-    scorer = StringScore.new(board['name'])
-    [scorer.score(text), board]
-  end
-  non_zero = scored.reject {|(score, board)| score.zero? }
-  sorted = non_zero.sort do |(score, board)|
-    score
-  end
-  sorted.map { |(_, board)| board }
+def filter(boards, text)
+  re = text.split(//).map(&Regexp.method(:escape)).join('.*')
+  re = /#{re}/i
+  boards.select { |board| board['name'] =~ re }
 end
 
 def respond(boards)
-  builder = Nokogiri::XML::Builder.new do |xml|
-    xml.items do
-      boards.each do |board|
-        xml.item('arg' => board['url']) do
-          xml.title_ board['name']
-          xml.icon 'icon.png'
-          xml.subtitle board['desc']
-        end
-      end
-    end
+  doc = REXML::Document.new
+  items = doc.add_element('items')
+  boards.each do |board|
+    item = items.add_element('item')
+    item.add_attribute('arg', board['url'])
+    item.add_element('title').add_text(board['name'])
+    item.add_element('icon').add_text('icon.png')
+    item.add_element('subtitle').add_text(board['desc'])
   end
 
-  puts builder.to_xml
+  puts doc.to_s
 end
 
 def log(msg)

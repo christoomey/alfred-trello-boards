@@ -62,7 +62,7 @@
 				<key>script</key>
 				<string>[[ -s "$HOME/.ruby-version-shim" ]] &amp;&amp; source "$HOME/.ruby-version-shim"
 
-ruby feedback.rb "{query}"</string>
+ruby --disable-gems feedback.rb "{query}"</string>
 				<key>title</key>
 				<string>Trello boards</string>
 				<key>type</key>
