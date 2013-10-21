@@ -18,7 +18,11 @@ end
 def filter(boards, text)
   re = text.split(//).map(&Regexp.method(:escape)).join('.*')
   re = /#{re}/i
-  boards.select { |board| board['name'] =~ re }
+  boards.select { |board| board['name'] =~ re }.sort do |a, b|
+    left = ((a['name'] =~ /#{text}/i) || 1_000)
+    right = ((b['name'] =~ /#{text}/i) || 1_000)
+    left <=> right
+  end
 end
 
 def respond(boards)
