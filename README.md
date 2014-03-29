@@ -50,7 +50,7 @@ You can generate this key by visiting [here](https://trello.com/1/appKey/generat
 You can generate this key by visiting the following URL (**note** you will have
 to replace the developer token in this URL):
 
-https://trello.com/1/authorize?key=substitutewithyourapplicationkey&name=Trelfred&expiration=30days&response_type=token
+https://trello.com/1/authorize?key=substitutewithyourapplicationkey&name=Trelfred&expiration=never&response_type=token
 
 You can find more detail in the Trello API Documentation - [Generating a Token
 from a User][] section.
