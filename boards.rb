@@ -21,7 +21,7 @@ end
 
 def fetch_trello_boards(url)
   resp = RestClient.get(url)
-  boards = JSON.parse(resp)
+  boards = JSON.parse(resp.body.force_encoding('UTF-8'))
 rescue RestClient::Unauthorized
   auth_msg = "Unauthorized error. Unable to fetch from API. Exiting"
   log auth_msg
