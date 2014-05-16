@@ -4,7 +4,7 @@ require 'rexml/document'
 def main
   lines = open('boards.json', 'r') { |f| f.read }
   text = ARGV[0]
-  boards = JSON.parse(lines)
+  boards = JSON.parse(lines.force_encoding('UTF-8'))
   log "testing text: [#{text}] against [#{boards.count}] boards"
   if text && text != ''
     log "scoring boards as text is present"
