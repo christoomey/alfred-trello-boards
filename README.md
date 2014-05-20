@@ -57,6 +57,11 @@ from a User][] section.
 
 [Generating a Token from a User]: https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user
 
+Installation
+------------
+
+Clone down the repo and symlink the whole folder into `~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows/`.
+
 Usage
 -----
 
