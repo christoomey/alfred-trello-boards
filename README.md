@@ -9,25 +9,32 @@ An experimental [Alfred][] Workflow for quickly visiting [Trello][] boards.
 Ruby Version
 ------------
 
-By default Alfred workflows will run against system Ruby. This is sub optimal.
-This workflow expects there to be bash script in your home directory that will
-do whatever form of ruby version management you are partial to. This can be
-rvm, rbenv, chruby, direct $PATH manipulation, or other. In my case, I user
-RVM, so I have added the RVM init code to the file:
+By default Alfred workflows will run against system Ruby, which doesn't work so
+well. This workflow expects there to be a bash script in your home directory that
+will set up your Ruby version manager. This can be rvm, rbenv, chruby, direct
+$PATH manipulation, or something else.
+
+For RVM:
 
 ``` bash
 # ~/.ruby-version-shim
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 ```
 
-Create this file and alter this as needed to make use of your preferred ruby version system.
+For rbenv, do this at the command line:
+
+```bash
+rbenv init - --no-rehash > ~/.ruby-version-shim
+```
+
+If you're using something different, pull requests are very welcome.
 
 Gems
 ----
 
 The repo contains a gemfile with the dependencies. Run `bundle install` to
-install the needed gems. Make sure to do this with the default ruby specified
-by the `~/.ruby-version-shim` file.
+install the needed gems. Make sure to do this with the ruby specified by the
+`~/.ruby-version-shim` file.
 
 Credentials
 -----------
@@ -60,14 +67,15 @@ from a User][] section.
 Installation
 ------------
 
-Clone down the repo and symlink the whole folder into `~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows/`.
+OK, now you're set up. Symlink the whole folder into `~/Library/Application
+Support/Alfred 2/Alfred.alfredpreferences/workflows/` to tell Alfred about it.
 
 Usage
 -----
 
-This workflow prosodies two pieces:
+This workflow consists of two pieces:
 
-- A caching script `cache-trello`
-- A script filter to prompt / open boards
+- A `cache-trello` keyword in Alfred to cache the boards (via `boards.rb`)
+- A `trello` keyword in Alfred to open a specific board
 
-The boards must be cached before the filter / opening can happen.
+Run `cache-trello` to cache the boards before using the `trello` keyword.
