@@ -29,13 +29,6 @@ rbenv init - --no-rehash > ~/.ruby-version-shim
 
 If you're using something different, pull requests are very welcome.
 
-Gems
-----
-
-The repo contains a gemfile with the dependencies. Run `bundle install` to
-install the needed gems. Make sure to do this with the ruby specified by the
-`~/.ruby-version-shim` file.
-
 Credentials
 -----------
 
